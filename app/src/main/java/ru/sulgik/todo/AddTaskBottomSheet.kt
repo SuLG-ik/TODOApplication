@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.core.widget.doOnTextChanged
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -12,7 +13,7 @@ import ru.sulgik.todo.data.Task
 import ru.sulgik.todo.databinding.FragmentAddTaskBinding
 import ru.sulgik.todo.utils.toStringOrEmpty
 
-class AddTaskBottomSheet private constructor(): BottomSheetDialogFragment() {
+class AddTaskBottomSheet private constructor() : BottomSheetDialogFragment() {
 
     val binding by viewBinding<FragmentAddTaskBinding>()
     val tasksViewModel by sharedViewModel<TasksViewModel>()
@@ -32,10 +33,12 @@ class AddTaskBottomSheet private constructor(): BottomSheetDialogFragment() {
             binding.titleLayout.isErrorEnabled = false
         }
 
+
         task?.let {
             binding.label.setText(R.string.edit_task_edit_label)
             binding.title.setText(it.title)
             binding.description.setText(it.description)
+            binding.prioritySpinner.setSelection(task.priority, true)
         }
         binding.submit.setOnClickListener {
             val title = binding.title.text.toStringOrEmpty()
@@ -49,13 +52,13 @@ class AddTaskBottomSheet private constructor(): BottomSheetDialogFragment() {
                 tasksViewModel.insertTask(Task(
                     title = title,
                     description = description,
-                    priority = 0,
+                    priority = binding.prioritySpinner.selectedItemPosition,
                 ))
             } else {
                 tasksViewModel.updateTask(Task(
                     title = title,
                     description = description,
-                    priority = 0,
+                    priority = binding.prioritySpinner.selectedItemPosition,
                     id = task.id,
                 ))
             }

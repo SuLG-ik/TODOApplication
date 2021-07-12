@@ -11,9 +11,9 @@
     <string name="edit_task_priority_medium">Medium</string>
     <string name="edit_task_priority_low">Low</string>
     <string name="edit_task_priority_hint">Priority</string>
-    <array name="pososi">
-        <item>High</item>
-        <item>Medium</item>
+    <array name="edit_task_priority_array">
         <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
     </array>
 </resources>
