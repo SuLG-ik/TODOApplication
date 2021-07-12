@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TODO</string>
+    <string name="fab_add_description">add</string>
+    <string name="edit_task_title_hint">Title</string>
+    <string name="edit_task_title_error">Can\'t be empty</string>
+    <string name="edit_task_create_label">Create task</string>
+    <string name="edit_task_edit_label">Edit task</string>
+    <string name="edit_task_submit_button">Submit</string>
+    <string name="edit_task_description_hint">Description</string>
+    <string name="edit_task_priority_high">High</string>
+    <string name="edit_task_priority_medium">Medium</string>
+    <string name="edit_task_priority_low">Low</string>
+    <string name="edit_task_priority_hint">Priority</string>
+    <array name="pososi">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </array>
+</resources>
